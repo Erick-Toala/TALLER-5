@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <title id="documento_titulo">Taller 5</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="inicio">
+            <!-- Inicio de la pagina que mostrar un titulo y el nombre del autor -->
+            <h2 class="texto" id="texto">Taller 5<br><span>Erick Alexander Toala Intriago</span></h2>
+        </div>
+            <!-- contenedor de la pagina que contendrá las opciones en botones-->
+            <div class="caja_botones">
+                <!-- botón para llamar a la funcion cambiarFondo() -->
+                <button class="boton" onclick="cambiarFondo()" >
+                    <span><i class="fa fa-moon-o" aria-hidden="true"></i></span>
+                    Activar cambio de fondo
+                </button>
+                <!-- botón para llamar a la funcion resetear() -->
+                <button class="boton_resetear"  onclick="resetear()" >
+                    <i class="fa fa-repeat" aria-hidden="true"></i>
+                </button>
+                <!-- botón para llamar a la funcion abrirVentana() -->
+                <button class="boton" onclick="abrirVentana()">
+                    <span><i class="fa fa-external-link" aria-hidden="true"></i></span>
+                    Abrir ventana secundaria
+                </button>
+            </div>
+        <!-- contenedor para rellenar el espacio sobrante con imagenes .gif-->
+        <div class="imagenesBox">
+            <div class="bowser">
+                <img src="bowser.gif">
+            </div>
+            <div class="mario">
+                <img src="mario2.gif">
+            </div>
+        </div>
+    </div>
+    <!-- codigo de javascript para las funciones que van a realizar cada proceso de las opciones anteriores-->
+    <script type="text/javascript">
+        //funcion para Cambiar el color del fondo y texto, titulo y abrir una ventana secundaria
+        function cambiarFondo(){
+            //la siguiente linea cambia el color del fondo a Gris
+            document.body.style.backgroundColor = 'gray';
+            //la siguiente linea cambia el color del texto a white
+            //cambiará de color aquel texto con id=texto
+            var texto =document.getElementById("texto");
+            texto.style.color = 'white';
+            //la siguiente linea cambia titulo del documento
+            document.title="Modificaciones del objeto Document";
+        }
+        //funcion para abrir una nueva ventana secundaria
+        function abrirVentana(){
+            //guardamos en una variable la nueva ventana y establecemos las medidas
+            NuevaVentana = window.open('','','width=300, height=200');
+            NuevaVentana.document.write('<html>'); 
+            NuevaVentana.document.write('<head>'); 
+            NuevaVentana.document.write('<title>Ventana secundaria</title>');
+            //esta pagina usará el codigo css estilos_v2.css para darle un mejor diseño
+            NuevaVentana.document.write('<link rel="stylesheet" type="text/css" href="estilos_v2.css">'); 
+            NuevaVentana.document.write('</head>'); 
+            NuevaVentana.document.write('<body>'); 
+            NuevaVentana.document.write('<div class="inicio">');
+            //mostramos nuestro nombre y apellido
+            NuevaVentana.document.write('<h2 class="texto" id="texto">Toala Intriago Erick Alexander<br><span>Ventana secundaria</span></h2>');
+            NuevaVentana.document.write('<div class="caja_botones">');
+            //creamos un boton para "Cerrar ventana secundaria"
+            NuevaVentana.document.write('<button class="boton" onclick=window.close()>');
+            NuevaVentana.document.write('Cerrar ventana secundaria');
+            NuevaVentana.document.write('</button>');
+            NuevaVentana.document.write('</div>');
+            NuevaVentana.document.write('</div>');
+            NuevaVentana.document.write('</body>'); 
+            NuevaVentana.document.write('</html>');
+        }
+        //funcion para restablecer el fondo, texto y titulo del document
+        function resetear(){
+            document.body.style.backgroundColor = 'white';
+
+            var texto =document.getElementById("texto");
+            texto.style.color = 'black';
+
+            document.title="Taller 5";
+        }
+    </script>
+</body>
+</html>
